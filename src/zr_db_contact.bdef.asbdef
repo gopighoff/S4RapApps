@@ -1,0 +1,45 @@
+managed implementation in class ZBP_R_DB_CONTACT unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_DB_CONTACT alias ZrDbContact
+persistent table ZDB_CONTACT
+draft table ZDB_CONTACT_D
+etag master Lastchangedat
+lock master total etag Locallastchangedat
+authorization master( global )
+
+{
+  field ( readonly )
+   Contactuuid,
+   Createdby,
+   Createdat,
+   Lastchangedby,
+   Lastchangedat,
+   Locallastchangedat;
+
+  field ( numbering : managed )
+   Contactuuid;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZDB_CONTACT
+  {
+    Contactuuid = contactuuid;
+    Contactid = contactid;
+    Contactname = contactname;
+    Createdby = createdby;
+    Createdat = createdat;
+    Lastchangedby = lastchangedby;
+    Lastchangedat = lastchangedat;
+    Locallastchangedat = locallastchangedat;
+  }
+}

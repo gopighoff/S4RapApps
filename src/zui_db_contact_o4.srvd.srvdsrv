@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_DB_CONTACT'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_DB_CONTACT'
+  }
+}
+define service ZUI_DB_CONTACT_O4 provider contracts odata_v4_ui {
+  expose ZC_DB_CONTACT;
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Contact",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "zcontact.zcontact"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_E50EA475058D11CF3A22850A2CFF816A62379CE0_TM",
+    "semanticObject": "zcontact",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_E50EA475058D11CF3A22850A2CFF816A62379CE0_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Contact",
+        "subtitle": "Contact Master"
+      }
+    }
+  ]
+}
