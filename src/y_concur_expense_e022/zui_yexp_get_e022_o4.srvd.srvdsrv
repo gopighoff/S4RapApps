@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service definition for ZC_YEXP_GET_E022'
+define service ZUI_YEXP_GET_E022_O4 {
+  expose ZC_YEXP_GET_E022;
+  expose ZC_YEXP_REPORT_E022;
+  expose ZC_YEXP_ENTRY_E022;
+  expose ZC_YEXP_LOG_E022;
+}

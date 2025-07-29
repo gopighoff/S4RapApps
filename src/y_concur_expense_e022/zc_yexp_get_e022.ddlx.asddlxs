@@ -1,0 +1,113 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Task', 
+    typeNamePlural: 'Tasks'
+  }
+}
+annotate view ZC_YEXP_GET_E022 with
+{
+  @UI.facet: 
+  [ 
+    {
+        id: 'idIdentification', 
+        type: #IDENTIFICATION_REFERENCE, 
+        label: 'Task', 
+        position: 10 
+    },
+    {
+        id:'Reports',
+        purpose:#STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Reports',
+        position: 20,
+        targetElement: '_report'
+    },
+    {
+        id:'Logs',
+        purpose:#STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Logs',
+        position: 30,
+        targetElement: '_log'
+    }     
+  ]
+  
+  @UI: {
+  lineItem:       
+  [ 
+    { type: #FOR_ACTION, position: 10, dataAction: 'Retrieve_Report', label: 'Retrieve Reports' },
+    { type: #FOR_ACTION, position: 20, dataAction: 'Refresh', label: 'Refresh' },
+    { type: #FOR_ACTION, position: 30, dataAction: 'Post_Invoice', label: 'Post Invoice' }
+  ],
+  identification: 
+  [ 
+    { type: #FOR_ACTION, position: 10,  dataAction: 'Retrieve_Report', label: 'Retrieve Reports' },
+    { type: #FOR_ACTION, position: 20, dataAction: 'Refresh', label: 'Refresh' },
+    { type: #FOR_ACTION, position: 30, dataAction: 'Post_Invoice', label: 'Post Invoice' }
+  ],
+    textArrangement: #TEXT_ONLY
+  }   
+  
+  @UI.hidden: true
+  ZTaskUUID;
+  
+  @UI.hidden: true
+  ZTaskProcessStep;
+  
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #MEDIUM, 
+    label: 'Task ID'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Task ID'
+  } ]
+  ZTaskID;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity:
+  {name: 'ZR_YEXP_GET_OVS' , element: 'text' },
+  distinctValues: true
+  }]
+  ZFilterBy;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #MEDIUM, 
+    label: 'Task Status'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Task Status'
+  } ]
+  ZTaskStatus;
+
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Report ID'
+  } ]
+  ZReportID;
+  
+   @UI.identification: [ {
+    position: 50 , 
+    label: 'Filter From'
+  } ]
+  ZFilterFrom; 
+  
+    @UI.identification: [ {
+    position: 60 , 
+    label: 'Filter To'
+  } ]
+  ZFilterTo;
+  
+  @UI.hidden: true
+  ZLastChangedAt;
+}

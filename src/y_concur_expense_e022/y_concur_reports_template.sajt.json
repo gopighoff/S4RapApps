@@ -1,0 +1,19 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Y_CONCUR_REPORTS_TEMPLATE",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "catalogName": "Y_CONCUR_REPORTS_CATELOG"
+  },
+  "parameters": {
+    "singleValueParameters": [
+      {
+        "name": "UUID",
+        "value": "X"
+      }
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Report',
+    typeNamePlural: 'Reports'
+  }
+}
+annotate view ZC_YEXP_REPORT_E022 with
+{
+  @UI.facet:
+  [
+      {
+        id: 'Report',
+        type: #IDENTIFICATION_REFERENCE,
+        label: 'Report',
+        position: 10
+      },
+    {
+        id:'Expense',
+        purpose:#STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Expense',
+        position: 20,
+        targetElement: '_entry'
+    },
+    {
+        id:'Logs',
+        purpose:#STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Logs',
+        position: 30,
+        targetElement: '_log'
+    }
+  ]
+
+  @UI.hidden: true
+  ZReportUuid;
+
+  @UI.hidden: true
+  ZTaskUuid;
+
+  @UI.hidden: true
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'Report ID'
+  } ]
+  ZReportId;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'Report Name'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Report Name'
+  } ]
+  ZReportName;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM,
+    label: 'Processing Status'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Processing Status'
+  } ]
+  ZReportStatus;
+
+  @UI.lineItem: [ {
+    position: 50 ,
+    importance: #MEDIUM,
+    label: 'Report Created On'
+  } ]
+  @UI.identification: [ {
+    position: 40,
+    label: 'Report Created On'
+  } ]
+  ZReportCreatedon;
+
+  @UI.identification: [ {
+    position: 50,
+    label: 'Report Changed On'
+  } ]
+  ZReportLastchangedon;
+
+  @UI.identification: [ {
+    position: 60,
+    label: 'Report Submitted On'
+  } ]
+  ZReportSubmittedon;
+
+  @UI.identification: [ {
+    position: 70,
+    label: 'Report Owner ID'
+  } ]
+  ZOwnerId;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Report Owner Name'
+  } ]
+  @UI.identification: [ {
+    position: 80,
+    label: 'Report Owner Name'
+  } ]
+  ZOwnerName;
+
+  @UI.hidden: true
+  ZReportApprovalcode;
+
+  @UI.identification: [ {
+    position: 90,
+    label: 'Report Approval Status'
+  } ]
+  ZReportApprovalname;
+
+  @UI.identification: [ {
+    position: 100,
+    label: 'Transaction Currency'
+  } ]
+  ZTransactionCurrency;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Total Amount'
+  } ]
+  @UI.identification: [ {
+    position: 110,
+    label: 'Total Amount'
+  } ]
+  ZTotalAmt;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'Total Claimed Amount'
+  } ]
+  @UI.identification: [ {
+    position: 120,
+    label: 'Total Claimed Amount'
+  } ]
+  ZTotalClaimedAmt;
+
+}

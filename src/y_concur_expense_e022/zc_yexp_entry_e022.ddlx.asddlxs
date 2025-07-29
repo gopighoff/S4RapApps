@@ -1,0 +1,165 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Expense',
+    typeNamePlural: 'Expenses'
+  }
+}
+annotate view ZC_YEXP_ENTRY_E022
+    with 
+{
+  @UI.facet:
+  [
+      {
+        id: 'Expense',
+        type: #IDENTIFICATION_REFERENCE,
+        label: 'Expense',
+        position: 10
+      },
+    {
+        id:'Logs',
+        purpose:#STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Logs',
+        position: 20,
+        targetElement: '_log'
+    }
+   ]
+
+@UI.hidden: true
+ZEntryUuid;
+
+@UI.hidden: true
+ZReportUuid;
+
+@UI.hidden: true
+ZReportId;
+
+@UI.hidden: true
+ZEntryId;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'Supplier Invoice'
+  } ]   
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'Supplier Invoice'
+  } ]    
+ZSupplierInvoiceId;
+
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Supplier Invoice Fiscal Year'
+  } ]    
+zsupplierinvoicefiscal;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Expense Description'
+  } ]   
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Expense Description'
+  } ]
+ZEntryDescription;
+
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'Transaction Amount'
+  } ]
+ZEntryTransactionAmt;
+
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'Approved Amount'
+  } ]   
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Approved Amount'
+  } ]
+ZEntryApprovedAmt;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Processing Status'
+  } ]   
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'Processing Status'
+  } ]
+ZEntryStatus;
+
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'Vendor Description'
+  } ]
+ZEntryVendorDescription;
+
+@UI.hidden: true
+ZEntryTypecode;
+
+  @UI.identification: [ {
+    position: 80 ,
+    label: 'Expense Type'
+  } ]
+ZEntryTypename;
+
+@UI.hidden: true
+ZEntrySpendCategorycode;
+
+  @UI.identification: [ {
+    position: 90 ,
+    label: 'Spend Category'
+  } ]
+ZEntrySpendCategoryname;
+
+  @UI.lineItem: [ {
+    position: 50 ,
+    importance: #MEDIUM,
+    label: 'Transaction Date'
+  } ]   
+  @UI.identification: [ {
+    position: 100 ,
+    label: 'Transaction Date'
+  } ]
+ZEntryTransactionDate;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM,
+    label: 'Currency'
+  } ]
+  @UI.identification: [ {
+    position: 110 ,
+    label: 'Transaction Currency'
+  } ]
+ZEntryTransactionCurr;
+
+  @UI.identification: [ {
+    position: 120 ,
+    label: 'Expense Last Modified On'
+  } ]
+ZEntryLastModified;
+
+@UI.hidden: true
+ZCreatedBy;
+
+@UI.hidden: true
+ZCreatedAt;
+
+@UI.hidden: true
+ZLastChangedBy;
+
+@UI.hidden: true
+ZLastChangedAt;
+
+@UI.hidden: true
+ZLocalLastChangedAt;
+
+}

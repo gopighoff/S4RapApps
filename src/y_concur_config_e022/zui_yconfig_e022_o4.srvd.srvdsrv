@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_YCONFIG_E022'
+define service ZUI_YCONFIG_E022_O4 {
+  expose ZC_YCONFIG_E022;
+}

@@ -1,0 +1,63 @@
+managed implementation in class ZBP_R_YEXP_GET_E022 unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_YEXP_GET_E022
+persistent table yexp_get_e022
+draft table ZYEXP_GET_E022_D
+etag master ZLastChangedAt
+lock master total etag ZLocalLastChangedAt
+authorization master( global )
+with additional save
+{
+  field ( readonly )
+   ZTaskUUID,
+   ZTaskID,
+   ZCreatedAt,
+   ZCreatedBy,
+   ZLocalLastChangedAt,
+   ZLastChangedAt,
+   ZLastChangedBy;
+
+  field ( numbering : managed )
+   ZTaskUUID;
+
+  determination Generate_TaskID on save { create; }
+
+  action Retrieve_Report;
+  action Refresh;
+  action Post_Invoice;
+
+  side effects
+  {
+    action Retrieve_Report affects $self;
+    action Refresh affects $self;
+    action Post_Invoice affects $self;
+  }
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for YEXP_GET_E022
+  {
+    ZTaskUUID = z_task_uuid;
+    ZTaskID = z_task_id;
+    ZFilterBy = z_filter_by;
+    ZTaskStatus = z_task_status;
+    ZTaskProcessStep = z_task_process_step;
+    ZReportID = z_report_id;
+    ZFilterFrom = z_filter_from;
+    ZFilterTo = z_filter_to;
+    ZCreatedBy = z_created_by;
+    ZCreatedAt = z_created_at;
+    ZLastChangedBy = z_last_changed_by;
+    ZLastChangedAt = z_last_changed_at;
+    ZLocalLastChangedAt = z_local_last_changed_at;
+  }
+}

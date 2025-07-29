@@ -1,0 +1,59 @@
+managed implementation in class zbp_r_yexp_entry_e022 unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_YEXP_ENTRY_E022 //alias <alias_name>
+persistent table yexp_entry_e022
+draft table yexp_entry_ed22
+etag master ZLastChangedAt
+lock master total etag ZLocalLastChangedAt
+authorization master ( global )
+{
+  field ( readonly )
+  ZEntryUuid,
+  ZCreatedAt,
+  ZCreatedBy,
+  ZLocalLastChangedAt,
+  ZLastChangedAt,
+  ZLastChangedBy;
+
+  field ( numbering : managed )
+  ZEntryUuid;
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+    mapping for yexp_entry_e022
+    {
+      ZEntryUuid = z_entry_uuid;
+      ZReportUuid = z_report_uuid;
+      ZReportId = z_report_id;
+      ZEntryId = z_entry_id;
+      ZEntryStatus = z_entry_status;
+      ZEntryDescription = z_entry_description;
+      ZEntryTypecode = z_entry_typecode;
+      ZEntryTypename = z_entry_typename;
+      ZEntrySpendCategorycode = z_entry_spend_categorycode;
+      ZEntrySpendCategoryname = z_entry_spend_categoryname;
+      ZEntryTransactionDate = z_entry_transaction_date;
+      ZEntryTransactionCurr = z_entry_transaction_curr;
+      ZEntryTransactionAmt = z_entry_transaction_amt;
+      ZEntryApprovedAmt = z_entry_approved_amt;
+      ZEntryLastModified = z_entry_last_modified;
+      ZEntryVendorDescription = z_entry_vendor_description;
+      ZSupplierInvoiceId = z_supplier_invoice_id;
+      zsupplierinvoicefiscal = z_supplier_invoice_fiscal;
+      ZCreatedBy = z_created_by;
+      ZCreatedAt = z_created_at;
+      ZLastChangedBy = z_last_changed_by;
+      ZLastChangedAt = z_last_changed_at;
+      ZLocalLastChangedAt = z_local_last_changed_at;
+    }
+}
